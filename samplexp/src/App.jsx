@@ -8,6 +8,7 @@ import About from './pages/about.jsx';
 import Contact from './pages/contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import ProductDetails from './pages/ProductDetails.jsx';
 
 
 function App() {
@@ -85,13 +86,16 @@ photo:'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/0/f/l/-original
 
   return (
     <BrowserRouter>
+    <Header/>
     <Routes>
       <Route path='/' element={<Home products={products}/>} />
-      <Route path='about' element={<About />} />
-      <Route path='contact' element={<Contact />} />
-      <Route path='login' element={<Login />} />
-      <Route path='register' element={<Register />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/contact' element={<Contact />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
+      <Route path='/productdetails/:id' element={<ProductDetails products={products} />} />
     </Routes>
+    <Footer/>
     </BrowserRouter>
 
     // <>

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 function Home({ products }) {
     console.log(products)
@@ -12,8 +13,9 @@ function Home({ products }) {
 
             <Container>
                 <Row>
-                    {products.map((pro) => (
-                        <Col md={6} lg={4} xl={3} xxl={2} className="mt-3">
+                    {products.map((pro, i) => (
+                        <Col md={6} lg={4} xl={3} xxl={2} className="mt-3" key={i}>
+                            <Link to={`/productdetails/${pro.id}`}>
                             <Card>
                                 <Card.Img variant="top" src={pro?.photo ?? ""} />
                                 <Card.Body>
@@ -25,6 +27,7 @@ function Home({ products }) {
                                     <Button variant="primary">Add to Cart</Button>
                                 </Card.Body>
                             </Card>
+                            </Link>
                         </Col>
 
                     )

@@ -3,24 +3,27 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Header.css'
+import { Link } from 'react-router-dom';
+import { FaUserAstronaut } from "react-icons/fa";
 
 function Header() {
   return (
     <Navbar expand="lg" className="bk">
       <Container>
-        <Navbar.Brand href="#home">SHOPPING CART</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">SHOPPING CART</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">products</Nav.Link>
-            <Nav.Link href="#link">cart</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/productdetails">Products</Nav.Link>
+            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+            <Nav.Link as={Link} to="/cart">Contact</Nav.Link>
 
           </Nav>
 
           <Nav className="ms-auto">
-            <Nav.Link href="#home">contact</Nav.Link>
-            <NavDropdown title="profile" id="basic-nav-dropdown">
+            <Nav.Link href="#home">Cart</Nav.Link>
+            <NavDropdown title={<FaUserAstronaut/>} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action

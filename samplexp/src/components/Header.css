@@ -1,7 +1,7 @@
 .bk{
     background-color: rgb(241, 16, 16);
 }
-.bk .navbar-brand, .bk .nav-link, {
+.bk .navbar-brand, .bk .nav-link {
     color: white;
 }
  .bk .nav-link:hover{

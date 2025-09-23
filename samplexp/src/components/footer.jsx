@@ -1,10 +1,9 @@
-const Footer = () =>{
-    return (
-        <>
-        <h5>
-        this is the footer for the site
-        </h5>
-        </>
+const Footer = ()=> {
+    return(
+      <footer  className="bg-dark p-4 mt-4 text-center text-light">
+        © 2007-2025 Flipkart.com
+      </footer>
     )
 }
-export default Footer;
+
+export default Footer
