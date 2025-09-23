@@ -5,6 +5,10 @@ import Carousels from './components/Carosel.jsx';
 import Home from './pages/home.jsx';
 import {BrowserRouter, Route, Router, Routes} from "react-router-dom"
 import About from './pages/about.jsx';
+import Contact from './pages/contact.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+
 
 function App() {
   const products = [
@@ -83,7 +87,10 @@ photo:'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/0/f/l/-original
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home products={products}/>} />
-      <Route path='/about' element={<About/>} />
+      <Route path='about' element={<About />} />
+      <Route path='contact' element={<Contact />} />
+      <Route path='login' element={<Login />} />
+      <Route path='register' element={<Register />} />
     </Routes>
     </BrowserRouter>
 
