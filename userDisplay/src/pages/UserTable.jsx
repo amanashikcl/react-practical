@@ -1,5 +1,4 @@
 import Table from 'react-bootstrap/Table';
-
 function UserTable({ users }) {
   return (
     <Table striped bordered hover>

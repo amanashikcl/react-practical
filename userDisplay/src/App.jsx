@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserTable from './pages/userTable';
 import Header from './components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Contact from './pages/Contact';
 
 function App() {
   const users = 
@@ -187,10 +189,18 @@ function App() {
   }
 ]
   return (
-    <>
-      <Header/>
-      <UserTable users={users}/>   
-    </>
+
+    <BrowserRouter>
+    <Header/>
+    <Routes>
+      <Route path='/home' element ={<UserTable users={users}/>} />
+      <Route path='/contact' element ={<Contact/>} />
+    </Routes>
+    </BrowserRouter>
+    // <>
+    //   <Header/>
+    //   <UserTable users={users}/>   
+    // </>
   )
 }
 
