@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserTable from './pages/userTable';
+import Header from './components/Header';
 
 function App() {
   const users = 
@@ -186,7 +187,10 @@ function App() {
   }
 ]
   return (
+    <>
+      <Header/>
       <UserTable users={users}/>   
+    </>
   )
 }
 
