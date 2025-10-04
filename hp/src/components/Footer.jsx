@@ -26,41 +26,41 @@ const Footer = () => {
         <div className="footer-column">
           <h4>About Us</h4>
           <ul>
-            <li><a href="#contact">Contact HP</a></li>
-            <li><a href="#careers">Careers</a></li>
-            <li><a href="#investor">Investor relations</a></li>
-            <li><a href="#impact">Sustainable impact</a></li>
-            <li><a href="#newsroom">Newsroom</a></li>
-            <li><a href="#tech-takes">Tech Takes</a></li>
+            <li><a href="">Contact HP</a></li>
+            <li><a href="">Careers</a></li>
+            <li><a href="">Investor relations</a></li>
+            <li><a href="">Sustainable impact</a></li>
+            <li><a href="">Newsroom</a></li>
+            <li><a href="">Tech Takes</a></li>
           </ul>
         </div>
         <div className="footer-column">
           <h4>Ways to buy</h4>
           <ul>
-            <li><a href="#shop">Shop online</a></li>
-            <li><a href="#stores">HP World Brand exclusive stores</a></li>
-            <li><a href="#call">Call an HP rep</a></li>
-            <li><a href="#reseller">Find a reseller</a></li>
-            <li><a href="#promo">HP Promotions</a></li>
+            <li><a href="">Shop online</a></li>
+            <li><a href="">HP World Brand exclusive stores</a></li>
+            <li><a href="">Call an HP rep</a></li>
+            <li><a href="">Find a reseller</a></li>
+            <li><a href="">HP Promotions</a></li>
           </ul>
         </div>
         <div className="footer-column">
           <h4>Support</h4>
           <ul>
-            <li><a href="#drivers">Download drivers</a></li>
-            <li><a href="#troubleshooting">Support & troubleshooting</a></li>
-            <li><a href="#community">Community</a></li>
-            <li><a href="#service-providers">Authorized service providers</a></li>
-            <li><a href="#repair-status">Check repair status</a></li>
-            <li><a href="#featured-links">Featured links</a></li>
+            <li><a href="">Download drivers</a></li>
+            <li><a href="">Support & troubleshooting</a></li>
+            <li><a href="">Community</a></li>
+            <li><a href="">Authorized service providers</a></li>
+            <li><a href="">Check repair status</a></li>
+            <li><a href="">Featured links</a></li>
           </ul>
         </div>
         <div className="footer-column">
           <h4>HP Partners</h4>
           <ul>
-            <li><a href="#amplify">HP Amplify Partner Program</a></li>
-            <li><a href="#portal">HP Partner Portal</a></li>
-            <li><a href="#developers">Developers</a></li>
+            <li><a href="">HP Amplify Partner Program</a></li>
+            <li><a href="">HP Partner Portal</a></li>
+            <li><a href="">Developers</a></li>
           </ul>
         </div>
         <div className='' >
