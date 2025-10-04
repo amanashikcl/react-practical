@@ -5,6 +5,9 @@ function MyCarousel() {
     <Carousel>
       <Carousel.Item>
         <div style={{ display: 'flex', justifyContent: 'flex-end', height: '600px', overflow: 'hidden' }}>
+          <div>
+            nkasdnsn
+          </div>
           <img src='https://www.hp.com/content/dam/sites/worldwide/homepage/images/banners/hp-worldstores-benefits-desktop_2x.jpg'
               style={{
                 height:'600px', 

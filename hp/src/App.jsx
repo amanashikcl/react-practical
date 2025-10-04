@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import MyCarousel from './components/Carousel';
 import Home from './pages/Home';
+import Footer from './components/Footer';
+
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
       <Header />
       <MyCarousel />
       <Home />
+      <Footer />
     </>
   )
 }
