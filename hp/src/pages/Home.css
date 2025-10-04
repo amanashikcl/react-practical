@@ -12,9 +12,19 @@
     background-color:black;
 }
 
+.btn-learn:hover{
+    background-color: rgb(122, 122, 122);
+    border-color: rgb(122, 122, 122);
+}
+
 .line{
     height: 2px;
     background-color: black;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+.btn-request:hover{
+    color:white;
+    background-color: black;
 }

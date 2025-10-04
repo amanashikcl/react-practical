@@ -1,25 +1,40 @@
-import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
-import { useParams } from "react-router-dom";
+import { ListGroup, Image } from 'react-bootstrap'
+import Col from "react-bootstrap/esm/Col"
+import Container from "react-bootstrap/esm/Container"
+import Row from "react-bootstrap/esm/Row"
+import { useParams } from 'react-router-dom'
 
+function Productdetails({products}) {
+    const {id} = useParams()
+    console.log(id)
 
-function ProductDetails({products}){
+  const prod = products.find((pr) =>pr.id ===Number( id));
 
-    const {id} = useParams();
-    console.log(id);
-    return(
-        <Container>
-            <Row>
-                <Col md={5}>
-                    Left
-                </Col>
-                <Col md={7}>
-                    Right
-                </Col>
-            </Row>
-        </Container>
-    )
+    console.log("-----------",prod)
+  return (
+    <Container>
+      {!prod ? (
+        <Row>
+          <Col>
+            product not found
+          </Col>
+        </Row>
+      ) : (
+        <Row>
+          <Col md={5}>
+            <Image src={prod.photo} alt="" />
+          </Col>
+          <Col md={7}>
+            <ListGroup variant="flush">
+              <ListGroup.Item><h3>{prod.name}</h3></ListGroup.Item>
+              <ListGroup.Item><h3>{prod.price}</h3></ListGroup.Item>
+              <ListGroup.Item><h3>{prod.discription}</h3></ListGroup.Item>
+            </ListGroup>
+          </Col>
+        </Row>
+      )}
+    </Container>
+  );
 }
 
-export default ProductDetails;
+export default Productdetails;

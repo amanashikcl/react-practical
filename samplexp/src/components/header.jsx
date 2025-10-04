@@ -6,7 +6,8 @@ import './Header.css'
 import { Link } from 'react-router-dom';
 import { FaUserAstronaut } from "react-icons/fa";
 
-function Header() {
+
+function Header({cartItems}) {
   return (
     <Navbar expand="lg" className="bk">
       <Container>
@@ -22,7 +23,9 @@ function Header() {
           </Nav>
 
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Cart</Nav.Link>
+            <Nav.Link className='position-relative' href="#home">Cart
+              <span className='cart-count'>{cartItems}</span>
+            </Nav.Link>
             <NavDropdown title={<FaUserAstronaut/>} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

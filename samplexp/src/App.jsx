@@ -1,17 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/footer.jsx'
 import Header from './components/header.jsx'
-import Carousels from './components/Carosel.jsx';
-import Home from './pages/home.jsx';
+import Home from './pages/Home.jsx';
 import {BrowserRouter, Route, Router, Routes} from "react-router-dom"
 import About from './pages/about.jsx';
 import Contact from './pages/contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetails from './pages/ProductDetails.jsx';
-
+import {useState} from "react";
 
 function App() {
+  const[cartItems, setCart] = useState(0);
   const products = [
     {
       id: 1,
@@ -86,9 +86,9 @@ photo:'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/0/f/l/-original
 
   return (
     <BrowserRouter>
-    <Header/>
+    <Header cartItems={cartItems}/>
     <Routes>
-      <Route path='/' element={<Home products={products}/>} />
+      <Route path='/' element={<Home products={products} setCart={setCart}/>} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/login' element={<Login />} />
