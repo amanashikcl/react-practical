@@ -1,7 +1,18 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useState, useEffect } from "react";
 
 function About() {
+
+  const[count, setCount] = useState(0);
+  useEffect(()=>{
+    console.log("mounted");
+
+    return()=>{
+      console.log('unmounted');
+    }
+  },[count])
+
   return (
     <>
     
@@ -21,6 +32,12 @@ function About() {
           </Card.Body>
         </Card>
       </div>
+      <h1>Count {count}</h1>
+      <button onClick={()=>{
+        setCount(count + 1)
+      }}>Add</button>
+
+    
     </>
     
   );
