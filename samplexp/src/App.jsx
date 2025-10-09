@@ -8,7 +8,7 @@ import Contact from './pages/contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetails from './pages/ProductDetails.jsx';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
   const[cartItems, setCart] = useState(0);
@@ -88,13 +88,14 @@ function App() {
 const getProdcuts = () => {
   fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
-  .then((data)=>console.log(data)
-  )
+  .then((data)=>setProdcuts(data))
   .catch((err)=> console.log(err))
 }
-getProdcuts();
 
-
+useEffect(()=>{
+  getProdcuts();
+},[])
+console.log(products);
   return (
     <BrowserRouter>
     <Header cartItems={cartItems}/>

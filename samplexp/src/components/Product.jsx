@@ -12,10 +12,10 @@ function Products({ pro, setCart }) {
       <Col md={6} lg={4} xl={3} xxl={2} className="mt-3">
         <Card>
           <Link to={`/productdetails/${pro.id}`}>
-            <Card.Img variant="top" src={pro?.photo ?? ""} />
+            <Card.Img variant="top" src={pro?.image ?? ""} />
           </Link>
           <Card.Body>
-            <Card.Title>{pro?.name ?? ""}</Card.Title>
+            <Card.Title>{pro?.title ?? ""}</Card.Title>
             <h5>{pro?.price ?? ""}</h5>
             <Card.Text>{pro?.description ?? ""}</Card.Text>
             <Button variant="primary" onClick={handleIncrement}>
