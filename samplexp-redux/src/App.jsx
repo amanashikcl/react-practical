@@ -9,6 +9,8 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetails from './pages/ProductDetails.jsx';
 import {useEffect, useState} from "react";
+import { useDispatch } from 'react-redux';
+import { getProducts } from './redux/productSlice.js';
 
 function App() {
   const[cartItems, setCart] = useState(0);
@@ -84,16 +86,18 @@ function App() {
 // photo:'https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/0/f/l/-original-imahfvua89xenfgq.jpeg?q=70'    },
 //   ]
   const[products, setProdcuts] = useState([])
+  const dispatch = useDispatch();
 
-const getProdcuts = () => {
+
+const FetchProdcuts = () => {
   fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
-  .then((data)=>setProdcuts(data))
+  .then((data)=>dispatch(getProducts(data)))
   .catch((err)=> console.log(err))
 }
 
 useEffect(()=>{
-  getProdcuts();
+  FetchProdcuts();
 },[])
 console.log(products);
   return (
