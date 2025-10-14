@@ -5,9 +5,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { FaUserAstronaut } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 
-function Header({cartItems}) {
+function Header() {
+  const {cartItems }= useSelector((state)=>state.cartItems);
+
+
   return (
     <Navbar expand="lg" className="bk">
       <Container>
@@ -24,7 +28,7 @@ function Header({cartItems}) {
 
           <Nav className="ms-auto">
             <Nav.Link className='position-relative' href="#home">Cart
-              <span className='cart-count'>{cartItems}</span>
+              <span className='cart-count'>{cartItems.length}</span>
             </Nav.Link>
             <NavDropdown title={<FaUserAstronaut/>} id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

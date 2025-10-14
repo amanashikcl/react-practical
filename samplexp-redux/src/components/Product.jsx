@@ -2,11 +2,22 @@ import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
-function Products({ pro, setCart }) {
-  const handleIncrement = () => {
-    setCart((prev) => prev + 1);
+
+
+function Products({ pro }) {
+
+  const dispatch = useDispatch();
+
+  const handleIncrement = (pro) => {
+    dispatch(addToCart(pro))
   };
+
+  
+  
+  
   return (
     <>
       <Col md={6} lg={4} xl={3} xxl={2} className="mt-3">
@@ -18,7 +29,7 @@ function Products({ pro, setCart }) {
             <Card.Title>{pro?.title ?? ""}</Card.Title>
             <h5>{pro?.price ?? ""}</h5>
             <Card.Text>{pro?.description ?? ""}</Card.Text>
-            <Button variant="primary" onClick={handleIncrement}>
+            <Button variant="primary" onClick={()=>handleIncrement(pro)}>
               Add to Cart
             </Button>
           </Card.Body>
