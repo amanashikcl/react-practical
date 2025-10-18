@@ -4,7 +4,7 @@ import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx';
 import {BrowserRouter, Route, Router, Routes} from "react-router-dom"
 import About from './pages/About.jsx';
-import Contact from './pages/contact.jsx';
+import Contact from './pages/Contact.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetails from './pages/ProductDetails.jsx';
