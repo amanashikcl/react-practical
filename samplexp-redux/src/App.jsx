@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './components/footer.jsx'
-import Header from './components/header.jsx'
+import Footer from './components/Footer.jsx'
+import Header from './components/Header.jsx'
 import Home from './pages/Home.jsx';
 import {BrowserRouter, Route, Router, Routes} from "react-router-dom"
 import About from './pages/About.jsx';
@@ -11,6 +11,7 @@ import ProductDetails from './pages/ProductDetails.jsx';
 import {useEffect, useState} from "react";
 import { useDispatch } from 'react-redux';
 import { getProducts } from './redux/productSlice.js';
+import Cart from './pages/Cart.jsx';
 
 function App() {
 //   const[cartItems, setCart] = useState(0);
@@ -110,6 +111,7 @@ useEffect(()=>{
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/productdetails/:id' element={<ProductDetails />} />
+      <Route path='/cart' element={<Cart />} />
     </Routes>
     <Footer/>
     </BrowserRouter>

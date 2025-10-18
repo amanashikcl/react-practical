@@ -22,12 +22,12 @@ function Header() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/productdetails">Products</Nav.Link>
             <Nav.Link as={Link} to="/about">About Us</Nav.Link>
-            <Nav.Link as={Link} to="/cart">Contact</Nav.Link>
+            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
 
           </Nav>
 
           <Nav className="ms-auto">
-            <Nav.Link className='position-relative' href="#home">Cart
+            <Nav.Link className='position-relative' as={Link} to="/cart">Cart
               <span className='cart-count'>{cartItems.length}</span>
             </Nav.Link>
             <NavDropdown title={<FaUserAstronaut/>} id="basic-nav-dropdown">
