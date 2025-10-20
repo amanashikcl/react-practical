@@ -1,12 +1,20 @@
 import { Container, Row, Col, Table, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/cartSlice";
+import { addToCart, decremenntQuantity, removeCartItem } from "../redux/cartSlice";
 
 function Cart() {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cartItems);
   const handleIncrement = (product)=>{
     dispatch(addToCart(product));
+  }
+
+  const handleDecrement = (product)=>{
+    dispatch(decremenntQuantity(product));
+  }
+
+  const handleItemRemove = (itemIndex)=>{
+    dispatch(removeCartItem(itemIndex));
   }
 
   const findTotal = () =>{
@@ -53,13 +61,13 @@ function Cart() {
                   </td>
                   <td>
                     <div className="d-flex align-items-center">
-                    <Button variant="outline-secondary" size="sm" onClick={()=>handleIncrement(item)}>+</Button>
+                    <Button variant="success"  onClick={()=>handleIncrement(item)}>+</Button>
                     <input type="text" value={item.quantity || 1} readOnly className="mx-2 text-center" style={{width: '50px'}}/>
-                    <Button variant="outline-secondary" size="sm">-</Button>
+                    <Button variant="danger" disabled={item.quantity < 2 ? true : false }  onClick={()=>handleDecrement(item)}>-</Button>
                     </div>
                   </td>
                   <td>
-                    <Button variant="danger" size="sm">Remove</Button>
+                    <Button variant="danger" size="sm" onClick={()=>handleItemRemove(index)}>Remove</Button>
                   </td>
                 </tr>
               ))}
