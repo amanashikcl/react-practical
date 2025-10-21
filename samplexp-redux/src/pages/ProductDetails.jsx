@@ -2,19 +2,17 @@ import { ListGroup, Image, Button } from 'react-bootstrap'
 import Col from "react-bootstrap/esm/Col"
 import Container from "react-bootstrap/esm/Container"
 import Row from "react-bootstrap/esm/Row"
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-function Productdetails({pro, setCart, products}) {
-    const {id} = useParams()
-    console.log(id)
 
-  const prod = products.find((pr) =>pr.id ===Number( id));
 
-    console.log("-----------",prod)
+function Productdetails({}) {
+ const { products } = useSelector((state) => state.product);
+ const {id} = useParams()
+  const prod = products.find((pr) =>pr.id ===Number(id));
 
-  const handleIncrement = () => {
-    setCart((prev) => prev + 1);
-  }
+
   return (
     <Container>
       {!prod ? (
