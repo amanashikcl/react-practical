@@ -12,6 +12,7 @@ import {useEffect, useState} from "react";
 import { useDispatch } from 'react-redux';
 import { getProducts } from './redux/productSlice.js';
 import Cart from './pages/Cart.jsx';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 //   const[cartItems, setCart] = useState(0);
@@ -104,6 +105,7 @@ useEffect(()=>{
   return (
     <BrowserRouter>
     <Header />
+    <ToastContainer position='top-center' autoClose={1000}/>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/about' element={<About />} />
