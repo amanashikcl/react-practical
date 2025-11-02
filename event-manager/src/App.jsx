@@ -5,7 +5,9 @@ import { useDispatch } from 'react-redux';
 import { setEvents } from './redux/eventsSlice';
 import Home from './pages/Home';
 import Confirm from './pages/Confirm';
+import WishList from './pages/WishList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -51,9 +53,11 @@ function App() {
   return (
       <BrowserRouter>
         <Header/>
+        <ToastContainer position='top-center' autoClose={1000}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/confirm" element={<Confirm />} />
+          <Route path="/wishlist" element={<WishList />} />
         </Routes>
       </BrowserRouter>
   )

@@ -1,13 +1,13 @@
 import { Container, Row, Col, Table, Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react'
-
+import { useState } from "react";
 
 import {
   addToCart,
   decremenntQuantity,
   removeCartItem,
 } from "../redux/cartSlice";
+import { toast } from "react-toastify";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -22,17 +22,20 @@ function Cart() {
 
   const handleItemRemove = () => {
     dispatch(removeCartItem(removeItemIndex));
-    setShow(false)
+    setShow(false);
+    toast.success("Items removed");
   };
 
   const [show, setShow] = useState(false);
-const [removeItemIndex, setRemoveItemIndex] = useState(null);
+  const [removeItemIndex, setRemoveItemIndex] = useState(null);
   const handleClose = () => {
-    setRemoveItemIndex(null)
-    setShow(false)};
+    setRemoveItemIndex(null);
+    setShow(false);
+  };
   const handleShow = (index) => {
-    setRemoveItemIndex(index)
-    setShow(true)};
+    setRemoveItemIndex(index);
+    setShow(true);
+  };
 
   const findTotal = () => {
     const totalPrice = cartItems.reduce((total, curr) => {
@@ -145,7 +148,10 @@ const [removeItemIndex, setRemoveItemIndex] = useState(null);
           <Button variant="secondary" onClick={handleClose}>
             No
           </Button>
-          <Button variant="primary" onClick={()=>handleItemRemove(removeItemIndex)}>
+          <Button
+            variant="primary"
+            onClick={() => handleItemRemove(removeItemIndex)}
+          >
             Remove
           </Button>
         </Modal.Footer>
