@@ -6,6 +6,8 @@ import { setEvents } from './redux/eventsSlice';
 import Home from './pages/Home';
 import Confirm from './pages/Confirm';
 import WishList from './pages/WishList';
+import Register from './pages/Register';
+import Login from './pages/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
@@ -58,6 +60,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/confirm" element={<Confirm />} />
           <Route path="/wishlist" element={<WishList />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
   )

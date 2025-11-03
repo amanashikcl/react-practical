@@ -18,11 +18,11 @@ import Cart from './pages/Cart.jsx';
 import { ToastContainer } from 'react-toastify';
 import ListProducts from './admin/pages/listProducts.jsx';
 import AddProducts from './admin/pages/addProducts.jsx'
+import EditProduct from './admin/pages/editProduct.jsx'
 import ProtectedRoute from './utils/ProtectedRoute.jsx';
 
 
 function App() {
-  // const [Cart, setCart] = useState(0);
   const dispatch =useDispatch()
 
 
@@ -57,6 +57,9 @@ getproducts()
           <ListProducts/>
         </ProtectedRoute>} />
         <Route path='/admin-addproducts' element={<AddProducts />} />
+        <Route path='/admin-editproduct/:id' element={<ProtectedRoute>
+          <EditProduct />
+        </ProtectedRoute>} />
 
       </Routes>
       <Footer />

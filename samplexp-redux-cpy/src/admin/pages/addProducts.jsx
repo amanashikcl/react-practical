@@ -130,7 +130,7 @@ const AddProducts = () => {
             <Button
               type="submit"
             >
-              add Product
+              Add Product
             </Button>
           </Form>
         )}

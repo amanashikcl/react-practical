@@ -24,7 +24,7 @@ function Product({ pro, index }) {
                     <Card.Img variant="top" src={pro?.productPhoto ?? pro?.productImage ?? pro?.image ?? null} />
                 </Link>
                 <Card.Body>
-                    <Card.Title>{pro?.productName ?? pro?.name ?? pro?.title ?? ""}</Card.Title>
+                    <Card.Title>{pro?.productName ?? pro?.productName ?? pro?.title ?? ""}</Card.Title>
                     <h5>₹{pro?.productPrice ?? pro?.price ?? ""}</h5>
 
                         <Button variant="primary" onClick={() => handleIncrement (pro)}>Add to Cart</Button>

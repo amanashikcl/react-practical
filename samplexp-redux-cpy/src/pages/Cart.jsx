@@ -28,7 +28,7 @@ const Cart = () => {
     const { cartitems } = useSelector((state) => state.cartitems);
    const findTotal =()=>{
    const cartTotal=  cartitems.reduce((total,curr)=>{
-        const itemTotal = curr.price * curr.quantity;
+        const itemTotal = curr.productPrice * curr.quantity;
         total += itemTotal;
         return total;
     }, 0);
@@ -82,8 +82,8 @@ const Cart = () => {
                                 <td>
                                     <div className="d-flex ">  <div><Image src={items.image} alt={items.title}  className="image-size"/></div>
                                        <div>
-                                        <h5>{items.title}</h5>
-                                        <p>₹{items.price} x {items.quantity} = ₹{items.price * items.quantity}</p>
+                                        <h5>{items.productName}</h5>
+                                        <p>₹{items.productPrice} x {items.quantity} = ₹{items.productPrice * items.quantity}</p>
                                         </div>
                                     </div>
                                 </td>
