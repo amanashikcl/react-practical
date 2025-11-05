@@ -11,11 +11,15 @@ import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../redux/userSlice';
 import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+
 
 function Register() {
   const { Formik } = formik;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {createUser} = useContext(UserContext);
 
   const schema = yup.object().shape({
     firstName: yup.string('Enter string only').required('First name is required').min(2, 'First name should be of minimum 2 characters length').max(20, 'First name should be of maximum 20 characters length'),
@@ -30,8 +34,13 @@ function Register() {
   const handleRegister = (values) => {
     values.id = Date.now();
     values.role = 'user';
-    values.status = 'true';
+    // use boolean for status
+    values.status = true;
+    // also store a fullName for places that expect a single fullName field
+    values.fullName = `${values.firstName ?? ''} ${values.lastName ?? ''}`.trim();
 
+    // persist to both Context and Redux so list views (which read from Redux) stay in sync
+    createUser(values);
     dispatch(registerUser(values));
     toast.success('Registeration completed');
     navigate("/login")

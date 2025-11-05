@@ -1,17 +1,16 @@
 import { Col, Container, Row, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { deleteProduct } from "../../redux/productSlice";
+import { useContext } from "react";
+import { ProductContext } from "../../context/ProductContext";
 import { useState } from "react";
 
 const ListProducts = () => {
-  const dispatch = useDispatch()
-  const products = useSelector((state) => state.product.products);
-  const [removeProduct, setRemoveProduct] = useState(null)
-  const deleteProducts = (productIndex) => {
-    dispatch(deleteProduct(removeProduct))
-  }
+  const { products, removeProduct } = useContext(ProductContext);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleDelete = (productId) => {
+    removeProduct(productId);
+  };
 
   return (
     <Container>
@@ -37,9 +36,9 @@ const ListProducts = () => {
               </tr>
             </thead>
             <tbody>
-              {products.length ? (
+              {products && products.length ? (
                 products.map((pro, i) => (
-                  <tr key={pro.id}>
+                  <tr key={pro?.id ?? pro?.productId ?? pro?._id ?? i}>
                     <td>{i + 1}</td>
                     <td>
                       <img
@@ -51,8 +50,8 @@ const ListProducts = () => {
                     <td style={{ verticalAlign: "middle" }}>{pro.productName}</td>
                     <td style={{ verticalAlign: "middle" }}>${pro.productPrice}</td>
                     <td style={{ verticalAlign: "middle" }}>
-                      <Link to={`/admin-editproduct/${pro.id}`} className="btn btn-sm btn-primary me-2">Edit</Link>
-                       <button onClick={deleteProducts}>Delete</button>
+               <Link to={`/admin-editproduct/${pro?.id ?? pro?.productId ?? pro?._id}`} className="btn btn-sm btn-primary me-2">Edit</Link>
+               <button onClick={() => handleDelete(pro?.id ?? pro?.productId ?? pro?._id)}>Delete</button>
                     </td>
                   </tr>
                 ))

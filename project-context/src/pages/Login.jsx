@@ -1,9 +1,10 @@
-import React, { use, useState } from 'react'
+import React, { use, useContext, useState } from 'react'
 import { Form, Row, Col, Container, Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { userLogin } from '../redux/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { UserContext } from '../context/UserContext';
 
 
 function Login() {
@@ -16,7 +17,7 @@ function Login() {
     const { users } = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
-
+  const {loginUser} = useContext(UserContext);
   const Navigate = useNavigate();
 
   const [validated, setValidated] = useState(false);
@@ -56,6 +57,8 @@ function Login() {
         toast.error("invalid credentials");
         return
       }
+      // update both Context and Redux so ProtectedRoute and Header agree
+      loginUser(user);
       dispatch(userLogin(user));
       toast.success("login successful");
       Navigate("/")

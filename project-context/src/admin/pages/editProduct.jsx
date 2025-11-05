@@ -7,17 +7,16 @@ import Row from 'react-bootstrap/Row';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import * as formik from 'formik';
 import * as yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useContext } from 'react';
+import { ProductContext } from '../../context/ProductContext';
 import { toast } from 'react-toastify';
-import { editProduct } from '../../redux/productSlice';
+ 
 
 const EditProduct = () => {
   const { Formik } = formik;
-  const dispatch = useDispatch();
+  const { products, updateProduct } = useContext(ProductContext);
   const navigate = useNavigate();
   const { id } = useParams();
-
-  const products = useSelector((state) => state.product.products || []);
   const productId = Number(id);
   const product = products.find((p) => p.id === productId);
 
@@ -29,9 +28,7 @@ const EditProduct = () => {
   });
 
   const handleProduct = (values) => {
-    values.id = productId;
-
-    dispatch(editProduct(values));
+    updateProduct(productId(values));
     toast.success('product updated successfully');
     navigate('/admin-listproducts');
   };

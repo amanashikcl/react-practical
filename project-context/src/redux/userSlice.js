@@ -28,9 +28,20 @@ const userSlice = createSlice({
             localStorage.removeItem('user');
             localStorage.removeItem('isAuthenticated');
 
+        },
+        changeUserStatus:(state, action)=>{
+            const userIndex = state.users.findIndex((u)=> u.id ===  action.payload)
+            if(userIndex !==-1){
+                state.users[userIndex].status = !state.users[userIndex].status
+                localStorage.setItem('users', JSON.stringify(state.users))
+            }
+            if(state.user?.id === action.payload){
+                state.user.status = !state.user.status;
+                localStorage.setItem('user', JSON.stringify(state.user));
+            }
         }
     }
 
 });
-export const { registerUser, userLogin, userLogout } = userSlice.actions;
+export const { registerUser, userLogin, userLogout, changeUserStatus } = userSlice.actions;
 export default userSlice.reducer;

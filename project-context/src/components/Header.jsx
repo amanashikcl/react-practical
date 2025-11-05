@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaUserLarge } from "react-icons/fa6";
 import { userLogout } from '../redux/userSlice';
 import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
 
 
 
@@ -17,7 +19,7 @@ import { toast } from 'react-toastify';
 function Header() {
   const {cartitems} = useSelector((state) => state.cartitems);
 
-  const {isAuthenticated} = useSelector((state)=> state.users);
+  const {isAuthenticated} = useContext(UserContext)
 
   console.log("isAuthenticated", isAuthenticated);
 const dispatch = useDispatch();
@@ -38,7 +40,6 @@ toast.success("user loggedout successfully")
           <Nav className="me-auto">
 
             <Nav.Link as={Link} to="/">PRODUCTS</Nav.Link>
-            {/* <Nav.Link as={Link} to="/prodcut">products</Nav.Link> */}
             <Nav.Link as={Link} to="/about">ABOUT US</Nav.Link>
 
           </Nav>
@@ -57,7 +58,7 @@ toast.success("user loggedout successfully")
               <NavDropdown.Item as={Link} to="/admin-listproducts">
                 list products
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/settings">Settings</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/admin-listusers">List Users</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to='/login' onClick={handleLogout}>
                 Logout

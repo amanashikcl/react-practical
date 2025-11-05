@@ -7,14 +7,13 @@ import Row from 'react-bootstrap/Row';
 import { Link, useNavigate } from 'react-router-dom';
 import * as formik from 'formik';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useContext } from 'react';
+import { ProductContext } from '../../context/ProductContext';
 import { toast } from 'react-toastify';
-import { registerUser } from '../../redux/userSlice';
-import { addProducts } from '../../redux/productSlice';
 
 const AddProducts = () => {
   const { Formik } = formik;
-  const dispatch = useDispatch();
+  const { addProduct } = useContext(ProductContext);
   const navigate = useNavigate();
 
   const schema = yup.object().shape({
@@ -29,8 +28,7 @@ const AddProducts = () => {
   const handleProduct = (values) => {
     values.id = Date.now();
 
-
-    dispatch(addProducts(values));
+    addProduct(values);
     toast.success('product added completed');
  
   }
