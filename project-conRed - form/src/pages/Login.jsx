@@ -53,6 +53,7 @@ function Login() {
       loginUser(user);
       dispatch(userLogin(user));
       toast.success("login successful");
+      console.log("logged in successfully");
       Navigate("/");
     }
   };
@@ -84,6 +85,9 @@ function Login() {
               <Form.Control.Feedback type="invalid">
                 Please provide a valid email.
               </Form.Control.Feedback>
+              <Form.Control.Feedback>
+                Email looks good!
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Label>Password</Form.Label>
 
@@ -100,6 +104,9 @@ function Login() {
               <Form.Control.Feedback type="invalid">
                 Please provide a valid password.
               </Form.Control.Feedback>
+              <Form.Control.Feedback >
+                Password looks good!
+              </Form.Control.Feedback>
             </Form.Group>
             <Button variant="success" type="submit" className="w-100">
               Login
@@ -112,6 +119,7 @@ function Login() {
           </Link>
         </Col>
       </Row>
+      
     </Container>
   );
 }
