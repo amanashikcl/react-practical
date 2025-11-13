@@ -1,0 +1,12 @@
+.image-size {
+    width: 80px;
+    height: 70px;
+
+
+    margin-right: 10px;
+}
+
+.quantity-field {
+    width: 60px;
+    text-align: center;
+}
